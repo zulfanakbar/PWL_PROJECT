@@ -8,18 +8,13 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-        <li><a href="/home" class="{{ Request::is('home') ? 'active' : '' }}">Home</a></li>
-        <li><a href="/about" class="{{ Request::is('about') ? 'active' : '' }}">About</a></li>
-        <li><a href="/mekanik" class="{{ Request::is('mekanik') ? 'active' : '' }}">Mekanik</a></li>
-        <li><a href="/sparepart" class="{{ Request::is('sparepart') ? 'active' : '' }}">Sparepart</a></li>
-        <li><a href="/pelanggan" class="{{ Request::is('pelanggan') ? 'active' : '' }}">Pelanggan</a></li>
-        <li><a href="/servismotor" class="{{ Request::is('servismotor') ? 'active' : '' }}">Services Motor</a></li>
-        <li><a href="/gallery" class="{{ Request::is('gallery') ? 'active' : '' }}">Gallery</a></li>
-        <li><a href="/contact" class="{{ Request::is('contact') ? 'active' : '' }}">Contact</a></li>
+          <li><a href="/user" class="{{ Request::is('user') ? 'active' : '' }}">Home</a></li>
+          <li><a href="/mekanik" class="{{ Request::is('mekanik') ? 'active' : '' }}">Mekanik</a></li>
+          <li><a href="/sparepart" class="{{ Request::is('sparepart') ? 'active' : '' }}">Sparepart</a></li>
+          <li><a href="/pelanggan" class="{{ Request::is('pelanggan') ? 'active' : '' }}">Pelanggan</a></li>
+          <li><a href="/servismotor" class="{{ Request::is('servismotor') ? 'active' : '' }}">Services Motor</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Pemesanan</a>
-
     </div>
   </header><!-- End Header -->
