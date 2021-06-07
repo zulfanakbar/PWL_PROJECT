@@ -2,13 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MekanikController;
 use App\Http\Controllers\SparepartController;
 use App\Http\Controllers\PelangganController;
-use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServiceMotorController ;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,22 +19,24 @@ use App\Http\Controllers\ServiceMotorController ;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', [HomeController::class, 'user']);
 
-Route::get('/about', [AboutController::class, 'index']);
+Route::get('logout', [Auth::class, 'logout'], function () {
+    return abort(404);
+});
 
-Route::get('/mekanik', [MekanikController::class, 'index']);
+Route::resource('mekanik', MekanikController::class)->middleware('auth');
+Route::resource('sparepart', SparepartController::class)->middleware('auth');
+Route::resource('pelanggan', PelangganController::class)->middleware('auth');
+Route::resource('servismotor', ServisMotorController::class)->middleware('auth');
 
-Route::get('/sparepart', [SparepartController::class, 'index']);
-
-Route::get('/pelanggan', [PelangganController::class, 'index']);
-
-Route::get('/servismotor', [ServiceMotorController ::class, 'index']);
-
-Route::get('/gallery', [GalleryController::class, 'index']);
-
-Route::get('/contact', [ContactController::class, 'index']);
+Route::prefix('admin')->middleware('auth')->group(function(){
+    Route::get('/produk', [AdminController::class, 'produk'])->name('admin.produk');
+});
