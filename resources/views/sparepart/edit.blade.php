@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <label for="harga">Harga</label>
-                                <input type="text" name="harga" class="form-control" id="harga" value="{{ $Sparepart->id_harga }}" aria-describedby="harga" required="required">
+                                <input type="text" name="harga" class="form-control" id="harga" value="{{ $Sparepart->harga }}" aria-describedby="harga" required="required">
                             </div>
 
                     <button type="submit" class="btn btn-primary">Simpan</button>
